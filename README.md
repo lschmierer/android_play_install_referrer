@@ -1,14 +1,15 @@
 # android_play_install_referrer
+[![pub package](https://img.shields.io/pub/v/android_play_install_referrer.svg)](https://pub.dartlang.org/packages/android_play_install_referrer)
 
-A new Flutter plugin for the Android Play Install Referrer API
+A Flutter plugin for the Android Play Install Referrer API.
+The plugins throws an exception on iOS and on Android if Google Play Services are not available.
 
-## Getting Started
+## Usage
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+Get Google Play Install Referrer Details:
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```Dart
+ReferrerDetails referrerDetails = await AndroidPlayInstallReferrer.installReferrer;
+```
+
+For more information see https://developer.android.com/google/play/installreferrer/library.html
