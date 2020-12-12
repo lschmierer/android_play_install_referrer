@@ -36,7 +36,22 @@ class ReferrerDetails {
     return _installBeginTimestampSeconds;
   }
 
-  /// Boolean indicating if the user has interacted with the app's instant experience in the past 7 days.
+  /// The server-side timestamp, in seconds, when the referrer click happened.
+  int get referrerClickTimestampServerSeconds {
+    return _referrerClickTimestampServerSeconds;
+  }
+
+  /// The server-side timestamp, in seconds, when app installation began.
+  int get installBeginTimestampServerSeconds {
+    return _installBeginTimestampServerSeconds;
+  }
+
+  /// The app's version at the time when the app was first installed.
+  String get installVersion {
+    return _installVersion;
+  }
+
+  /// Indicates whether your app's instant experience was launched within the past 7 days.
   bool get googlePlayInstantParam {
     return _googlePlayInstantParam;
   }
