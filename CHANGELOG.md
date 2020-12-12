@@ -1,3 +1,6 @@
+## 0.0.4
+* Expose new ReferrerDetails fields
+
 ## 0.0.3
 * Update Gradle
 * Update installreferrer dependency to 2.1
