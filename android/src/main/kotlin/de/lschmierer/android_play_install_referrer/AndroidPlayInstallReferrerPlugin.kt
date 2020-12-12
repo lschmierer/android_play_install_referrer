@@ -65,10 +65,13 @@ class AndroidPlayInstallReferrerPlugin : FlutterPlugin, MethodCallHandler {
                     InstallReferrerClient.InstallReferrerResponse.OK -> {
                         val referrerDetails = referrerClient.installReferrer
 
-                        val details = HashMap<String, Any>()
+                        val details = HashMap<String, Any?>()
                         details["installReferrer"] = referrerDetails.installReferrer
                         details["referrerClickTimestampSeconds"] = referrerDetails.referrerClickTimestampSeconds
                         details["installBeginTimestampSeconds"] = referrerDetails.installBeginTimestampSeconds
+                        details["referrerClickTimestampServerSeconds"] = referrerDetails.referrerClickTimestampServerSeconds
+                        details["installBeginTimestampServerSeconds"] = referrerDetails.installBeginTimestampServerSeconds
+                        details["installVersion"] = referrerDetails.installVersion
                         details["googlePlayInstantParam"] = referrerDetails.googlePlayInstantParam
 
                         result.success(details)

@@ -14,6 +14,9 @@ void main() {
         'installReferrer': 'abc',
         'referrerClickTimestampSeconds': 1,
         'installBeginTimestampSeconds': 2,
+        'referrerClickTimestampServerSeconds': 3,
+        'installBeginTimestampServerSeconds': 4,
+        'installVersion': 'def',
         'googlePlayInstantParam': true,
       };
     });
@@ -25,6 +28,6 @@ void main() {
 
   test('getInstallReferrer', () async {
     expect(await AndroidPlayInstallReferrer.installReferrer,
-        ReferrerDetails('abc', 1, 2, true));
+        ReferrerDetails('abc', 1, 2, 3, 4, 'def', true));
   });
 }

@@ -4,12 +4,21 @@ import 'package:flutter/services.dart';
 
 /// Google Play Install Referrer Details.
 class ReferrerDetails {
-  ReferrerDetails(this._installReferrer, this._referrerClickTimestampSeconds,
-      this._installBeginTimestampSeconds, this._googlePlayInstantParam);
+  ReferrerDetails(
+      this._installReferrer,
+      this._referrerClickTimestampSeconds,
+      this._installBeginTimestampSeconds,
+      this._referrerClickTimestampServerSeconds,
+      this._installBeginTimestampServerSeconds,
+      this._installVersion,
+      this._googlePlayInstantParam);
 
   final String _installReferrer;
   final int _referrerClickTimestampSeconds;
   final int _installBeginTimestampSeconds;
+  final int _referrerClickTimestampServerSeconds;
+  final int _installBeginTimestampServerSeconds;
+  final String _installVersion;
   final bool _googlePlayInstantParam;
 
   /// The referrer URL of the installed package.
@@ -77,6 +86,9 @@ class AndroidPlayInstallReferrer {
         details['installReferrer'],
         details['referrerClickTimestampSeconds'],
         details['installBeginTimestampSeconds'],
+        details['referrerClickTimestampServerSeconds'],
+        details['installBeginTimestampServerSeconds'],
+        details['installVersion'],
         details['googlePlayInstantParam']);
   }
 }
