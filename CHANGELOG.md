@@ -1,3 +1,7 @@
+## 0.0.3
+* Update Gradle
+* Update installreferrer dependency to 2.1
+
 ## 0.0.2
 * Update installreferrer dependency to 1.1.2 to remove unnecessary WRITE_EXTERNAL_STORAGE and READ_EXTERNAL_STORAGE permissions.
 
