@@ -41,5 +41,5 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.installreferrer:installreferrer:2.1'
+    implementation 'com.android.installreferrer:installreferrer:2.2'
 }
