@@ -84,6 +84,10 @@ class AndroidPlayInstallReferrerPlugin : FlutterPlugin, MethodCallHandler {
                         result.error("SERVICE_UNAVAILABLE", "Connection couldn't be established.", null)
                         return
                     }
+                    InstallReferrerClient.InstallReferrerResponse.PERMISSION_ERROR -> {
+                        result.error("PERMISSION_ERROR", "App is not allowed to bind to the Service.", null)
+                        return
+                    }
                 }
                 referrerClient.endConnection()
             }
