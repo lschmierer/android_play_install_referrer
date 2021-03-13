@@ -1,3 +1,6 @@
+## 0.1.0
+* Enable null safety
+
 ## 0.0.4
 * Expose new ReferrerDetails fields
 
