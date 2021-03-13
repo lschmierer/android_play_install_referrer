@@ -5,21 +5,22 @@ import 'package:flutter/services.dart';
 /// Google Play Install Referrer Details.
 class ReferrerDetails {
   ReferrerDetails(
-      this._installReferrer,
-      this._referrerClickTimestampSeconds,
-      this._installBeginTimestampSeconds,
-      this._referrerClickTimestampServerSeconds,
-      this._installBeginTimestampServerSeconds,
-      this._installVersion,
-      this._googlePlayInstantParam);
+    this._installReferrer,
+    this._referrerClickTimestampSeconds,
+    this._installBeginTimestampSeconds,
+    this._referrerClickTimestampServerSeconds,
+    this._installBeginTimestampServerSeconds,
+    this._installVersion,
+    this._googlePlayInstantParam,
+  );
 
-  final String _installReferrer;
-  final int _referrerClickTimestampSeconds;
-  final int _installBeginTimestampSeconds;
-  final int _referrerClickTimestampServerSeconds;
-  final int _installBeginTimestampServerSeconds;
-  final String _installVersion;
-  final bool _googlePlayInstantParam;
+  late final String _installReferrer;
+  late final int _referrerClickTimestampSeconds;
+  late final int _installBeginTimestampSeconds;
+  late final int _referrerClickTimestampServerSeconds;
+  late final int _installBeginTimestampServerSeconds;
+  late final String _installVersion;
+  late final bool _googlePlayInstantParam;
 
   /// The referrer URL of the installed package.
   String get installReferrer {
@@ -90,20 +91,21 @@ class AndroidPlayInstallReferrer {
   /// Get installation referrer details.
   ///
   /// Throws an exception on iOS and if Google Play Services are not available on Android.
-  static Future<ReferrerDetails> get installReferrer async {
-    final Map details = await _channel.invokeMethod('getInstallReferrer');
+  static Future<ReferrerDetails?> get installReferrer async {
+    final Map? details = await _channel.invokeMethod('getInstallReferrer');
 
     if (details == null) {
       return null;
     }
 
     return ReferrerDetails(
-        details['installReferrer'],
-        details['referrerClickTimestampSeconds'],
-        details['installBeginTimestampSeconds'],
-        details['referrerClickTimestampServerSeconds'],
-        details['installBeginTimestampServerSeconds'],
-        details['installVersion'],
-        details['googlePlayInstantParam']);
+      details['installReferrer'],
+      details['referrerClickTimestampSeconds'],
+      details['installBeginTimestampSeconds'],
+      details['referrerClickTimestampServerSeconds'],
+      details['installBeginTimestampServerSeconds'],
+      details['installVersion'],
+      details['googlePlayInstantParam'],
+    );
   }
 }

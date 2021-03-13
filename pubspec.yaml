@@ -2,11 +2,11 @@ name: android_play_install_referrer
 description: >
   A Flutter plugin for the Android Play Install Referrer API.
   You can use it to securely retrieve referral content from Google Play.
-version: 0.0.4
+version: 0.1.0
 homepage: https://github.com/lschmierer/android_play_install_referrer
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
   flutter: ">=1.12.0 <2.0.0"
 
 dependencies:

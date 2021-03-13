@@ -27,28 +27,28 @@ void main() {
   });
 
   test('getInstallReferrer', () async {
-    expect((await AndroidPlayInstallReferrer.installReferrer).installReferrer,
+    expect((await AndroidPlayInstallReferrer.installReferrer)!.installReferrer,
         'abc');
     expect(
-        (await AndroidPlayInstallReferrer.installReferrer)
+        (await AndroidPlayInstallReferrer.installReferrer)!
             .referrerClickTimestampSeconds,
         1);
     expect(
-        (await AndroidPlayInstallReferrer.installReferrer)
+        (await AndroidPlayInstallReferrer.installReferrer)!
             .installBeginTimestampSeconds,
         2);
     expect(
-        (await AndroidPlayInstallReferrer.installReferrer)
+        (await AndroidPlayInstallReferrer.installReferrer)!
             .referrerClickTimestampServerSeconds,
         3);
     expect(
-        (await AndroidPlayInstallReferrer.installReferrer)
+        (await AndroidPlayInstallReferrer.installReferrer)!
             .installBeginTimestampServerSeconds,
         4);
-    expect((await AndroidPlayInstallReferrer.installReferrer).installVersion,
+    expect((await AndroidPlayInstallReferrer.installReferrer)!.installVersion,
         'def');
     expect(
-        (await AndroidPlayInstallReferrer.installReferrer)
+        (await AndroidPlayInstallReferrer.installReferrer)!
             .googlePlayInstantParam,
         true);
   });
