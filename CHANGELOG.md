@@ -1,3 +1,6 @@
+## 0.1.1
+* Fix null safety issue with nullable strings
+
 ## 0.1.0
 * Enable null safety
 
