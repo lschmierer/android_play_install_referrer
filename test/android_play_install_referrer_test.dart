@@ -16,7 +16,7 @@ void main() {
         'installBeginTimestampSeconds': 2,
         'referrerClickTimestampServerSeconds': 3,
         'installBeginTimestampServerSeconds': 4,
-        'installVersion': 'def',
+        'installVersion': null,
         'googlePlayInstantParam': true,
       };
     });
@@ -46,7 +46,7 @@ void main() {
             .installBeginTimestampServerSeconds,
         4);
     expect((await AndroidPlayInstallReferrer.installReferrer)!.installVersion,
-        'def');
+        null);
     expect(
         (await AndroidPlayInstallReferrer.installReferrer)!
             .googlePlayInstantParam,

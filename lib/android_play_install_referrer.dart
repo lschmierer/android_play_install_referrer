@@ -14,16 +14,16 @@ class ReferrerDetails {
     this._googlePlayInstantParam,
   );
 
-  late final String _installReferrer;
-  late final int _referrerClickTimestampSeconds;
-  late final int _installBeginTimestampSeconds;
-  late final int _referrerClickTimestampServerSeconds;
-  late final int _installBeginTimestampServerSeconds;
-  late final String _installVersion;
-  late final bool _googlePlayInstantParam;
+  final String? _installReferrer;
+  final int _referrerClickTimestampSeconds;
+  final int _installBeginTimestampSeconds;
+  final int _referrerClickTimestampServerSeconds;
+  final int _installBeginTimestampServerSeconds;
+  final String? _installVersion;
+  final bool _googlePlayInstantParam;
 
   /// The referrer URL of the installed package.
-  String get installReferrer {
+  String? get installReferrer {
     return _installReferrer;
   }
 
@@ -48,7 +48,7 @@ class ReferrerDetails {
   }
 
   /// The app's version at the time when the app was first installed.
-  String get installVersion {
+  String? get installVersion {
     return _installVersion;
   }
 
