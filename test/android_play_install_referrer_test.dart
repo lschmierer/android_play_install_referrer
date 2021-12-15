@@ -1,6 +1,6 @@
+import 'package:android_play_install_referrer/android_play_install_referrer.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:android_play_install_referrer/android_play_install_referrer.dart';
 
 void main() {
   const MethodChannel channel =
@@ -27,28 +27,28 @@ void main() {
   });
 
   test('getInstallReferrer', () async {
-    expect((await AndroidPlayInstallReferrer.installReferrer)!.installReferrer,
+    expect((await AndroidPlayInstallReferrer.installReferrer).installReferrer,
         'abc');
     expect(
-        (await AndroidPlayInstallReferrer.installReferrer)!
+        (await AndroidPlayInstallReferrer.installReferrer)
             .referrerClickTimestampSeconds,
         1);
     expect(
-        (await AndroidPlayInstallReferrer.installReferrer)!
+        (await AndroidPlayInstallReferrer.installReferrer)
             .installBeginTimestampSeconds,
         2);
     expect(
-        (await AndroidPlayInstallReferrer.installReferrer)!
+        (await AndroidPlayInstallReferrer.installReferrer)
             .referrerClickTimestampServerSeconds,
         3);
     expect(
-        (await AndroidPlayInstallReferrer.installReferrer)!
+        (await AndroidPlayInstallReferrer.installReferrer)
             .installBeginTimestampServerSeconds,
         4);
-    expect((await AndroidPlayInstallReferrer.installReferrer)!.installVersion,
+    expect((await AndroidPlayInstallReferrer.installReferrer).installVersion,
         null);
     expect(
-        (await AndroidPlayInstallReferrer.installReferrer)!
+        (await AndroidPlayInstallReferrer.installReferrer)
             .googlePlayInstantParam,
         true);
   });
