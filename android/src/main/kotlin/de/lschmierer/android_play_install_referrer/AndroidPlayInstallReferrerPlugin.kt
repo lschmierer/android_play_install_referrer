@@ -20,28 +20,9 @@ class AndroidPlayInstallReferrerPlugin : FlutterPlugin, MethodCallHandler {
 
     private lateinit var context: Context
     private var channel: MethodChannel? = null
+    private val referrerClients = HashSet<InstallReferrerClient>()
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        setupChannel(flutterPluginBinding.binaryMessenger, flutterPluginBinding.applicationContext)
-    }
-
-    // This static function is optional and equivalent to onAttachedToEngine. It supports the old
-    // pre-Flutter-1.12 Android projects. You are encouraged to continue supporting
-    // plugin registration via this function while apps migrate to use the new Android APIs
-    // post-flutter-1.12 via https://flutter.dev/go/android-project-migration.
-    //
-    // It is encouraged to share logic between onAttachedToEngine and registerWith to keep
-    // them functionally equivalent. Only one of onAttachedToEngine or registerWith will be called
-    // depending on the user's project. onAttachedToEngine or registerWith must both be defined
-    // in the same class.
-    companion object {
-        @JvmStatic
-        fun registerWith(registrar: Registrar) {
-            AndroidPlayInstallReferrerPlugin().setupChannel(registrar.messenger(), registrar.context())
-        }
-    }
-
-    private fun setupChannel(messenger: BinaryMessenger, context: Context) {
         this.context = context
         channel = MethodChannel(messenger, CHANNEL_NAME)
         channel!!.setMethodCallHandler(this)
@@ -58,6 +39,7 @@ class AndroidPlayInstallReferrerPlugin : FlutterPlugin, MethodCallHandler {
 
     fun getInstallReferrer(@NonNull call: MethodCall, @NonNull result: Result) {
         val referrerClient = InstallReferrerClient.newBuilder(context).build()
+        referrerClients.add(referrerClient)
         referrerClient.startConnection(object : InstallReferrerStateListener {
             override fun onInstallReferrerSetupFinished(responseCode: Int) {
 
@@ -89,6 +71,7 @@ class AndroidPlayInstallReferrerPlugin : FlutterPlugin, MethodCallHandler {
                         return
                     }
                 }
+                referrerClients.remove(referrerClient)
                 referrerClient.endConnection()
             }
 
@@ -97,6 +80,8 @@ class AndroidPlayInstallReferrerPlugin : FlutterPlugin, MethodCallHandler {
     }
 
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+        referrerClients.forEach { it.endConnection() }
+        referrerClients.clear()
         channel?.setMethodCallHandler(null)
         channel = null
     }

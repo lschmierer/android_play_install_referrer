@@ -91,13 +91,8 @@ class AndroidPlayInstallReferrer {
   /// Get installation referrer details.
   ///
   /// Throws an exception on iOS and if Google Play Services are not available on Android.
-  static Future<ReferrerDetails?> get installReferrer async {
-    final Map? details = await _channel.invokeMethod('getInstallReferrer');
-
-    if (details == null) {
-      return null;
-    }
-
+  static Future<ReferrerDetails> get installReferrer async {
+    final Map details = await _channel.invokeMethod('getInstallReferrer');
     return ReferrerDetails(
       details['installReferrer'],
       details['referrerClickTimestampSeconds'],
