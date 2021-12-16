@@ -51,7 +51,9 @@ class AndroidPlayInstallReferrerPlugin : FlutterPlugin, MethodCallHandler {
 
     }
 
+    @Synchronized
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+        pendingResults.clear()
         referrerClient?.endConnection()
         channel.setMethodCallHandler(null)
     }
