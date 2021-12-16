@@ -1,3 +1,7 @@
+## 0.2.0
+* Fix for DeadObjectException
+* Only query Install Referrer API once
+
 ## 0.1.1
 * Fix null safety issue with nullable strings
 
