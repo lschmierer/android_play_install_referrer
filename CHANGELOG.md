@@ -1,3 +1,6 @@
+## 0.2.1
+* Minor improvement to onDetachedFromEngine
+
 ## 0.2.0
 * Fix for DeadObjectException
 * Only query Install Referrer API once
