@@ -1,3 +1,7 @@
+## 0.3.0
+* Update Gradle version to keep compatibility with Flutter
+* Updated example to use v2 embedding
+
 ## 0.2.1
 * Minor improvement to onDetachedFromEngine
 
