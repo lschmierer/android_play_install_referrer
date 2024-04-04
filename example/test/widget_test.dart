@@ -19,7 +19,7 @@ void main() {
     expect(
       find.byWidgetPredicate(
         (Widget widget) => widget is Text &&
-                           widget.data.startsWith('Referrer Details:'),
+                           widget.data!.startsWith('Referrer Details:'),
       ),
       findsOneWidget,
     );
