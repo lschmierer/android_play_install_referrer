@@ -1,3 +1,8 @@
+## 0.4.0
+* Updates Gradle to 8.3
+* Updates AGP to 8.1.0
+* Updates java/kotlin compilation target to 1.8
+
 ## 0.3.0
 * Update Gradle version to keep compatibility with Flutter
 * Updated example to use v2 embedding
