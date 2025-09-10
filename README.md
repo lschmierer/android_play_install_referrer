@@ -1,3 +1,8 @@
+> **Deprecation!**
+> 
+> This project was forked and is maintained by [ChunkyTofuStudios](https://github.com/ChunkyTofuStudios).
+> Please use their project instead https://github.com/ChunkyTofuStudios/play_install_referrer
+
 # android_play_install_referrer
 [![pub package](https://img.shields.io/pub/v/android_play_install_referrer.svg)](https://pub.dartlang.org/packages/android_play_install_referrer)
 
